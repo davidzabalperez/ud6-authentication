@@ -19,6 +19,12 @@ Route::get('/', ['as'=>'home','uses'=>'AppController@index']);
 Route::get('/getLogin', function (){
     return view('auth.login');
 });
+Route::get('/getProfile', function (){
+    return view('profile');
+})->name('profile');
+Route::get('/getMessages', function (){
+    return view('messages');
+})->name('mensajes');
 Route::get('/getRegister', function (){
     return view('auth.register');
 });
