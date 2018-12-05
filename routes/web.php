@@ -22,9 +22,11 @@ Route::get('/getLogin', function (){
 Route::get('/getProfile', function (){
     return view('profile');
 })->name('profile');
+
 Route::get('/getMessages', function (){
     return view('messages');
-})->name('mensajes');
+    
+})->name('mensajes')->middleware('auth');
 Route::get('/getRegister', function (){
     return view('auth.register');
 });

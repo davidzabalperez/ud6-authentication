@@ -14,7 +14,7 @@ class AppController extends Controller
 
   public function index()
   {
-      return view('ud6');
+      return view('home');
   }
   public function getLogin(){
       return view('auth.login');

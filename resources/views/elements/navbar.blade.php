@@ -22,6 +22,11 @@
                         Mensajes
                     </a>
                 </li>
+                <li id="initial" class="nav-item">
+                    <a class="nav-link active" href="{{ route('mensajes') }}">
+                        Nuevo mensaje
+                    </a>
+                </li>
             @endauth
             </ul>
 
