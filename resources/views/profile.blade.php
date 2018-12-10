@@ -16,12 +16,16 @@
                     @endif
                     UNIDAD 6 'Esto es el perfil'
                     <br>
-                    <input type="text" name="" id="" value="{{ Auth::user()->name }}">
-                    <button type="button" class="btn btn-primary">cambiar nombre</button>
+                    <form action="changeProfile" method="post">
+                        @csrf
+                    <input type="hidden" name="id" value="{{ Auth::user()->id }}">
+                    <input type="text" name="name" id="name" value="{{ Auth::user()->name }}">
+                    <button type="submit" class="btn btn-primary">cambiar nombre</button>
                     <br>
                     <br>
-                    <input type="text" name="" id="" value="{{ Auth::user()->email }}">
-                    <button type="button" class="btn btn-primary">cambiar email</button>
+                    <input type="text" name="email" id="email" value="{{ Auth::user()->email }}">
+                    <button type="submit" class="btn btn-primary">cambiar email</button>
+                    </form>
                 </div>
             </div>
         </div>

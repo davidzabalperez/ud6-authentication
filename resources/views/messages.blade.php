@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Envia un mensaje nuevo</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,11 +14,12 @@
                         </div>
                         session ('status')
                     @endif
-                    UNIDAD 6 'Envia un mensaje'
                     <br>
                     <br>
+                    <span>Nombre:</span>
                     <input type="text" name="" id="" value="{{ Auth::user()->name }}">
                     <br>
+                    <span>Mensaje:</span>
                     <br>
                     <textarea name="" id="" cols="30" rows="10"></textarea>
                     <br>

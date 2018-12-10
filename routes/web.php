@@ -15,21 +15,30 @@ Route::get('/welcome', function () {
     return view('welcome_basic');
 })->middleware('auth.basic');
 
-Route::get('/', ['as'=>'home','uses'=>'AppController@index']);
+Route::get('/', [
+    'as'=>'home',
+    'uses'=>'AppController@index'
+]);
 Route::get('/getLogin', function (){
     return view('auth.login');
 });
 Route::get('/getProfile', function (){
     return view('profile');
 })->name('profile');
-
 Route::get('/getMessages', function (){
     return view('messages');
-    
 })->name('mensajes')->middleware('auth');
+
 Route::get('/getRegister', function (){
     return view('auth.register');
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+->name('home')->middleware('verified');
+
+Route::post('/changeProfile', [
+    'as'=>'changeProfile',
+    'uses'=>'AppController@cambiarNombre']);
+
+Auth::routes(['verify'=> true]);
+Auth::routes();

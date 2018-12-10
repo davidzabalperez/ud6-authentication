@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -18,5 +19,16 @@ class AppController extends Controller
   }
   public function getLogin(){
       return view('auth.login');
+  }
+
+  public function cambiarNombre(Request $request){
+
+    $user=User::find($request->input('id'));
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
+    $user->save();
+
+    return redirect('/home');
+    
   }
 }
